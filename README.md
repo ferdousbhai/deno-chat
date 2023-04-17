@@ -3,19 +3,18 @@ A basic framework for working with Open AI's Chat API and storing context of pre
 
 ## Usage
 
-### Single-turn question (without a chat session)
+### Single-turn conversation (without a chat session)
 
 ```ts
-import { Bot } from "https://github.com/ferdousbhai/Chatbot-Kickstarter/mod.ts"
+import { Bot } from "https://deno.land/x/deno_chat@0.1.1/mod.ts"
 const marvin = new Bot();
 const responseFromMarvin = await marvin.ask("What's the meaning of life?");
 console.log(`Marvin says, "${responseFromMarvin}"`);
 ```
 
-### Multi-turn question (with a chat session)
+### Multi-turn conversation (with a chat session)
 
 ```ts
-import { Bot } from "https://github.com/ferdousbhai/Chatbot-Kickstarter/mod.ts"
 const dan = new Bot({
   name: "Dan",
   instruction: "You are a Socratic tutor. Ask relevant questions.",
