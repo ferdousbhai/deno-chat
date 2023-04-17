@@ -28,7 +28,7 @@ export class Bot {
   }
 
   async ask(userPrompt: string, options?: UserPromptOptions): Promise<string> {
-    const { chatId, userName, model } = options || {};
+    const { chatId, userName, model, temperature } = options || {};
     const userMessage: Message = {
       role: "user",
       content: userPrompt,
@@ -39,6 +39,7 @@ export class Bot {
     try {
       const chatCompletion = await openAI.createChatCompletion({
         model: model || "gpt-3.5-turbo",
+        temperature: temperature || 1,
         messages: chatId ? this.session.get(chatId)!.history : [userMessage],
       });
       const assistantMessage = chatCompletion.choices[0].message as Message;

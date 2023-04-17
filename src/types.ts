@@ -17,4 +17,5 @@ export interface UserPromptOptions {
   chatId: string;
   userName?: string;
   model?: string;
+  temperature?: number;
 }

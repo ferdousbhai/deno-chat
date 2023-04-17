@@ -1,14 +1,14 @@
 import { Bot } from "./mod.ts";
 
-// Single-turn question without a chat session:
+// Single-turn question (without a chat session):
 const marvin = new Bot();
 const responseFromMarvin = await marvin.ask("What's the meaning of life?");
 console.log(`Marvin says, "${responseFromMarvin}"`);
 
-// Multi-turn chat with a bot:
+// Multi-turn chat (with a chat session):
 const dan = new Bot({
   name: "Dan",
-  instruction: "You can a Socratic tutor. Always ask questions.",
+  instruction: "You are a Socratic tutor. Ask relevant questions.",
 });
 
 const responseFromDan1 = await dan.ask("What's the meaning of life?", {

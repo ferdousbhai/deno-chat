@@ -38,6 +38,7 @@ dan.reset("123456789");
 const responseFromDanAfterReset = await dan.ask("What's the meaning of life?", {
   chatId: "123456789",
 });
-```
 console.log(`Dan says, "${responseFromDanAfterReset}"`);
+```
+
 
