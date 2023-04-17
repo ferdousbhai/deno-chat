@@ -1,4 +1,4 @@
-# Chatbot-Kickstarter
+# deno-chat: A Chatbot-Kickstarter
 A basic framework for working with Open AI's Chat API and storing context of previous conversation "turns".
 
 ## Usage
