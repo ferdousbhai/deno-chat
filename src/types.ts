@@ -10,11 +10,12 @@ export interface Message {
 }
 
 export interface SessionData {
-  history: Message[];
+  recentMessages: Message[];
+  longTermMemory?: Message[];
 }
 
 export interface UserPromptOptions {
-  chatId: string;
+  chatId?: string;
   userName?: string;
   model?: string;
   temperature?: number;

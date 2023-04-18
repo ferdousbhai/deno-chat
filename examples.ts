@@ -1,29 +1,40 @@
-import { Bot } from "./mod.ts";
+import { Bot, askAI } from "./mod.ts";
 
-// Single-turn question (without a chat session):
-const marvin = new Bot();
-const responseFromMarvin = await marvin.ask("What's the meaning of life?");
+// Ask AI any question:
+const botResponse = await askAI("List 5 fruits that start with the letter 'a' in JSON. Respond only in JSON.");
+console.log(botResponse);
+
+// Create an AI with unique system instructions:
+const marvin = new Bot({ instruction: "Always respond as if researching an article for the Hitchhiker's Guide to the Galaxy" });
+const responseFromMarvin = await marvin.ask(
+  "What is the meaning of life, the universe, and everything?",
+);
 console.log(`Marvin says, "${responseFromMarvin}"`);
 
 // Multi-turn chat (with a chat session):
 const dan = new Bot({
-  name: "Dan",
-  instruction: "You are a Socratic tutor. Ask relevant questions.",
+instruction: "Always ask questions to help the user think for themselves.",
 });
 
-const responseFromDan1 = await dan.ask("What's the meaning of life?", {
-  chatId: "123456789",
-});
-console.log(`Dan says, "${responseFromDan1}"`);
+const firstResponseFromDan = await dan.ask(
+  "What is the meaning of life, the universe, and everything?",
+  {
+    chatId: "123456789",
+  },
+);
+console.log(`Dan says, "${firstResponseFromDan}"`);
 
-const responseFromDan2 = await dan.ask("I'm not so sure.", {
+const secondResponseFromDan = await dan.ask("Just tell me the answer.", {
   chatId: "123456789",
 });
-console.log(`Dan says, "${responseFromDan2}"`);
+console.log(`Dan says, "${secondResponseFromDan}"`);
 
 // Reset a chat session:
 dan.reset("123456789");
-const responseFromDanAfterReset = await dan.ask("What's the meaning of life?", {
-  chatId: "123456789",
-});
+const responseFromDanAfterReset = await dan.ask(
+  "What is the meaning of life, the universe, and everything?",
+  {
+    chatId: "123456789",
+  },
+);
 console.log(`Dan says, "${responseFromDanAfterReset}"`);
