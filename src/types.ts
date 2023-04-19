@@ -10,8 +10,7 @@ export interface Message {
 }
 
 export interface SessionData {
-  recentMessages: Message[];
-  longTermMemory?: Message[];
+  messages: Message[];
 }
 
 export interface UserPromptOptions {
@@ -19,4 +18,10 @@ export interface UserPromptOptions {
   userName?: string;
   model?: string;
   temperature?: number;
+  maxTokens?: number;
+  n?: number;
+  stream?: boolean;
+  presencePenalty?: number;
+  frequencyPenalty?: number;
+  userId?: string;
 }
