@@ -1,2 +1,2 @@
-export { askAI, Bot } from "./src/bot.ts";
+export { AI, askAI } from "./src/bot.ts";
 export * from "./src/types.ts";

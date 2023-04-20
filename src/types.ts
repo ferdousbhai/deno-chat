@@ -11,6 +11,7 @@ export interface Message {
 
 export interface SessionData {
   messages: Message[];
+  timestamps: number[];
 }
 
 export interface UserPromptOptions {
