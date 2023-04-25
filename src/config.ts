@@ -1,4 +1,4 @@
-import { OpenAI } from "https://deno.land/x/openai@1.3.0/mod.ts";
+import { OpenAI } from "https://deno.land/x/openai@1.3.1/mod.ts";
 import { load } from "https://deno.land/std@0.178.0/dotenv/mod.ts";
 
 const env = await load();

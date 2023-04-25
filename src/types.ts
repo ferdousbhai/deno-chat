@@ -1,6 +1,7 @@
 export interface BotProps {
   name?: string;
   instruction?: string;
+  timeout?: number;
 }
 
 export interface Message {
@@ -10,8 +11,8 @@ export interface Message {
 }
 
 export interface SessionData {
-  messages: Message[];
-  timestamps: number[];
+  conversationSummary?: string;
+  timestamp?: number;
 }
 
 export interface UserPromptOptions {
