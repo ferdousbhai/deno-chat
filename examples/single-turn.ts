@@ -2,6 +2,7 @@ import { StatelessAI } from "../mod.ts";
 
 // Create an AI with unique system instructions:
 const marvin = new StatelessAI({
+  name: "Marvin",
   instruction:
     "Always respond as if researching an article for the Hitchhiker's Guide to the Galaxy",
 });

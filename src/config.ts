@@ -1,5 +1,5 @@
-import { OpenAI } from "https://deno.land/x/openai@1.3.1/mod.ts";
-import { load } from "https://deno.land/std@0.178.0/dotenv/mod.ts";
+import { OpenAI } from "../deps.ts";
+import { load } from "../deps.ts";
 
 const env = await load();
 const openAIKey = env["OPENAI_API_KEY"];

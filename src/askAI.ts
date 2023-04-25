@@ -9,5 +9,6 @@ export async function askAI(
     instruction:
       "You are an assistant that strictly follows user's instructions. Be concise. Do not elaborate.",
   });
-  return await bot.ask(prompt, options)!;
+  const assistantMessage = await bot.ask(prompt, options);
+  return assistantMessage?.content;
 }

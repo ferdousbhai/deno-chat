@@ -19,8 +19,3 @@ export const decidesSearch = new StatelessAI({
   instruction:
     "Your task is to decide whether performing a web search would improve response to user query. Respond only with true or false. Do not explain.",
 });
-
-export const summarizesConversation = new StatelessAI({
-  instruction:
-    "You are a chat assistant capable of summarizing conversations, remembering all the details.\n\n",
-});

@@ -2,8 +2,9 @@ import { AI } from "../mod.ts";
 
 // Multi-turn chat (with a chat session):
 const dan = new AI({
+  name: "Dan",
   instruction:
-    "You are a tutor. Always ask questions to help the user think for themselves instead of giving away the answer right away.",
+    "You are a tutor. Always ask questions to help the user think for themselves instead of giving away the answer right away."
 });
 console.log(
   await dan.ask(

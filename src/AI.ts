@@ -6,7 +6,7 @@ import type {
 } from "./types.ts";
 import { StatelessAI } from "./StatelessAI.ts";
 import { fetchChatCompletion, promptToMessages } from "./helperFunctions.ts";
-import { summarizesConversation } from "./helperBots.ts";
+import { summarizeConversation } from "../deps.ts";
 
 export class AI extends StatelessAI {
   #chatSessions: Map<string, SessionData>;
@@ -34,14 +34,9 @@ export class AI extends StatelessAI {
 
   // Add long and short term memory
   async #updateMemory(chatId: string, messages: Message[]) {
-    // Summarize conversation:
-    const previousSummary = this.#chatSessions.get(chatId)!.conversationSummary;
-    const promptText = previousSummary
-      ? `You are given a context and a conversation that follows. Write a paragraph progressively summarizing the context and the conversation. Start by repeating the context. Be concise.\n\nContext:\n${previousSummary}\n\nConversation:\n`
-      : "Summarize the following conversation.";
-    messages.push({ role: "system", content: promptText });
+    const previousSummary = this.#chatSessions.get(chatId)!.conversationSummary;    
     this.#chatSessions.get(chatId)!.conversationSummary =
-      (await summarizesConversation.ask(messages))?.content;
+      await summarizeConversation(messages, previousSummary);
     // Update timestamp
     this.#chatSessions.get(chatId)!.timestamp = Date.now();
     // Save sesion in ChromaDB for future retrieval
